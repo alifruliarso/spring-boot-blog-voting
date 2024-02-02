@@ -45,19 +45,14 @@ public class BlogService {
         return null;
     }
 
-    public Blog create(CreateBlogRequest createBlogRequest) {
+    public Blog create(CreateBlogRequest createBlogRequest) throws GSException {
         Blog blog = new Blog();
         blog.setId(KeyGenerator.next("bl"));
         blog.setTitle(createBlogRequest.getTitle());
         blog.setVoteDownCount(0);
         blog.setVoteUpCount(0);
         blog.setCreatedAt(new Date());
-        try {
-            blogCollection.put(blog);
-            blogCollection.commit();
-        } catch (GSException e) {
-            log.error("Error create blog", e);
-        }
+        blogCollection.put(blog);
         return blog;
     }
 

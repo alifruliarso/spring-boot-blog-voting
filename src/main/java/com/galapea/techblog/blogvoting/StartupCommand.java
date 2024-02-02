@@ -33,6 +33,7 @@ public class StartupCommand implements CommandLineRunner {
         titles.add("Creating A Daily Meal Plan App Using ReactJS, NodeJS, ExpressJS, and GridDB");
         titles.add("A Python-Based IoT Data Dashboard");
         titles.add("Create A Machine Learning Model using GridDB");
+        titles.add("Create A Deep Learning Model using GridDB");
         for (String title : titles) {
             if (blogService.fetchOne(title) == null) {
                 CreateBlogRequest rq = new CreateBlogRequest();

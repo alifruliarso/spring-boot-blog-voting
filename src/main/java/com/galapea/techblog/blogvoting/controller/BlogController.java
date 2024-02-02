@@ -2,6 +2,7 @@ package com.galapea.techblog.blogvoting.controller;
 
 import com.galapea.techblog.blogvoting.model.CreateBlogRequest;
 import com.galapea.techblog.blogvoting.service.BlogService;
+import com.toshiba.mwcloud.gs.GSException;
 import net.datafaker.Faker;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -25,7 +26,7 @@ public class BlogController {
 
     @ResponseBody
     @PostMapping(path = "/api", produces = MediaType.TEXT_HTML_VALUE)
-    String create(@RequestBody CreateBlogRequest createBlogRequest) {
+    String create(@RequestBody CreateBlogRequest createBlogRequest) throws GSException {
         this.blogService.create(createBlogRequest);
         return "Created";
     }
